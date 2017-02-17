@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/lgmarry.iml" filepath="$PROJECT_DIR$/lgmarry.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lgmarrydal/lgmarrydal.iml" filepath="$PROJECT_DIR$/lgmarrydal/lgmarrydal.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lgmarryservice/lgmarryservice.iml" filepath="$PROJECT_DIR$/lgmarryservice/lgmarryservice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lgmarryweb/lgmarryweb.iml" filepath="$PROJECT_DIR$/lgmarryweb/lgmarryweb.iml" />
+    </modules>
+  </component>
+</project>

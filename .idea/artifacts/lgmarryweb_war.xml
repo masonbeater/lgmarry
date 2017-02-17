@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="lgmarryweb:war">
+    <output-path>$PROJECT_DIR$/lgmarryweb/target</output-path>
+    <root id="archive" name="lgmarryweb.war">
+      <element id="artifact" artifact-name="lgmarryweb:war exploded" />
+    </root>
+  </artifact>
+</component>
