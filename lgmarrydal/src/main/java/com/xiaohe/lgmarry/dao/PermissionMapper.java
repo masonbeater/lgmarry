@@ -2,16 +2,6 @@ package com.xiaohe.lgmarry.dao;
 
 import com.xiaohe.lgmarry.dao.model.Permission;
 
-public interface PermissionMapper {
-    int deleteByPrimaryKey(Long id);
+public interface PermissionMapper extends GenericDao<Permission, Long>{
 
-    int insert(Permission record);
-
-    int insertSelective(Permission record);
-
-    Permission selectByPrimaryKey(Long id);
-
-    int updateByPrimaryKeySelective(Permission record);
-
-    int updateByPrimaryKey(Permission record);
 }

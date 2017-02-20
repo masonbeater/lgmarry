@@ -2,16 +2,7 @@ package com.xiaohe.lgmarry.dao;
 
 import com.xiaohe.lgmarry.dao.model.User;
 
-public interface UserMapper {
-    int deleteByPrimaryKey(Long id);
+public interface UserMapper extends GenericDao<User, Long>{
 
-    int insert(User record);
-
-    int insertSelective(User record);
-
-    User selectByPrimaryKey(Long id);
-
-    int updateByPrimaryKeySelective(User record);
-
-    int updateByPrimaryKey(User record);
+    User selectByUsername(String username);
 }

@@ -2,16 +2,6 @@ package com.xiaohe.lgmarry.dao;
 
 import com.xiaohe.lgmarry.dao.model.RolePermission;
 
-public interface RolePermissionMapper {
-    int deleteByPrimaryKey(Long id);
+public interface RolePermissionMapper extends GenericDao<RolePermission, Long>{
 
-    int insert(RolePermission record);
-
-    int insertSelective(RolePermission record);
-
-    RolePermission selectByPrimaryKey(Long id);
-
-    int updateByPrimaryKeySelective(RolePermission record);
-
-    int updateByPrimaryKey(RolePermission record);
 }
