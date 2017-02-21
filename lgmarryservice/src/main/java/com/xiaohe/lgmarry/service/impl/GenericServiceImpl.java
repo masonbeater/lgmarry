@@ -12,7 +12,7 @@ import java.util.List;
  * Model : 代表数据库中的表 映射的Java对象类型
  * ID :代表对象的主键类型
  *
- * @author StarZou
+ * @author Mason
  * @since 2014年6月9日 下午6:14:06
  */
 public abstract class GenericServiceImpl<Model, ID> implements GenericService<Model, ID> {

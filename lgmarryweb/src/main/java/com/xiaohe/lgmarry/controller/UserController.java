@@ -2,17 +2,14 @@ package com.xiaohe.lgmarry.controller;
 
 import com.xiaohe.lgmarry.dao.model.User;
 import com.xiaohe.lgmarry.service.UserService;
-import com.xiaohe.lgmarry.service.impl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
-import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 /**
@@ -25,15 +22,32 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = "/{username}", method = RequestMethod.GET)
-    public String getUserByUsername(@PathVariable String username, Model model, HttpServletRequest request) {
-        User user = userService.selectByUsername(username);
-        if (user == null) {
-            model.addAttribute("msg", "用户名不存在 ！");
-        }else{
-            model.addAttribute("msg", "成功 ！用户密码："+user.getPassword());
-        }
+    @RequestMapping(value = "/index", method = RequestMethod.GET)
+    public String index(){
         return "index";
     }
 
+    @RequestMapping(value = "/query/{username}", method = RequestMethod.GET)
+    public @ResponseBody String getUserByUsername(@PathVariable String username, Model model, HttpServletRequest request) {
+        User user = userService.selectByUsername(username);
+        if (user == null) {
+            model.addAttribute("success", false);
+        }else{
+            model.addAttribute("success", true);
+        }
+        model.addAttribute("user", user);
+        return user==null?"User "+username +" not found!" : "User "+ username +", password: " + user.getPassword();
+    }
+
+    @RequestMapping(value = "/queryByUsername", method = RequestMethod.POST)
+    public String queryByUsername(@RequestParam("username") String username, Model model, HttpServletRequest request) {
+        User user = userService.selectByUsername(username);
+        if (user == null) {
+            model.addAttribute("success", false);
+        }else{
+            model.addAttribute("success", true);
+        }
+        model.addAttribute("user", user);
+        return "index";
+    }
 }

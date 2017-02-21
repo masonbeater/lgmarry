@@ -4,6 +4,9 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 
+    <properties>
+        <property name="dialectClass" value="com.xiaohe.lgmarry.dao.util.dialect.MySql5Dialect"/>
+    </properties>
     <!-- 配置mybatis的缓存，延迟加载等等一系列属性 -->
     <settings>
 
@@ -53,5 +56,13 @@
 
     </settings>
 
+    <typeAliases>
+        <package name="com.xiaohe.lgmarry.dao.model"/>
+    </typeAliases>
+
+    <plugins>
+        <plugin interceptor="com.xiaohe.lgmarry.dao.util.paging.PaginationResultSetHandlerInterceptor"/>
+        <plugin interceptor="com.xiaohe.lgmarry.dao.util.paging.PaginationStatementHandlerInterceptor"/>
+    </plugins>
 
 </configuration>
