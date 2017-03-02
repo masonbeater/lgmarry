@@ -11,12 +11,12 @@
     <result column="type" property="type" jdbcType="SMALLINT" />
     <result column="weight" property="weight" jdbcType="SMALLINT" />
     <result column="height" property="height" jdbcType="SMALLINT" />
-    <result column="creationDate" property="creationdate" jdbcType="TIMESTAMP" />
-    <result column="birthDate" property="birthdate" jdbcType="DATE" />
+    <result column="creation_date" property="creationDate" jdbcType="TIMESTAMP" />
+    <result column="birth_date" property="birthDate" jdbcType="DATE" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, username, name, gender, age, orientation, type, weight, height, creationDate, 
-    birthDate
+    id, username, name, gender, age, orientation, type, weight, height, creation_date,
+    birth_date
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
     select 
@@ -32,11 +32,11 @@
     insert into member (id, username, name, 
       gender, age, orientation, 
       type, weight, height, 
-      creationDate, birthDate)
+      creation_date, birth_date)
     values (#{id,jdbcType=BIGINT}, #{username,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
       #{gender,jdbcType=VARCHAR}, #{age,jdbcType=SMALLINT}, #{orientation,jdbcType=SMALLINT}, 
       #{type,jdbcType=SMALLINT}, #{weight,jdbcType=SMALLINT}, #{height,jdbcType=SMALLINT}, 
-      #{creationdate,jdbcType=TIMESTAMP}, #{birthdate,jdbcType=DATE})
+      #{creationDate,jdbcType=TIMESTAMP}, #{birthDate,jdbcType=DATE})
   </insert>
   <insert id="insertSelective" parameterType="com.xiaohe.lgmarry.dao.model.Member" >
     insert into member
@@ -68,11 +68,11 @@
       <if test="height != null" >
         height,
       </if>
-      <if test="creationdate != null" >
-        creationDate,
+      <if test="creationDate != null" >
+        creation_date,
       </if>
-      <if test="birthdate != null" >
-        birthDate,
+      <if test="birthDate != null" >
+        birth_date,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
@@ -103,11 +103,11 @@
       <if test="height != null" >
         #{height,jdbcType=SMALLINT},
       </if>
-      <if test="creationdate != null" >
-        #{creationdate,jdbcType=TIMESTAMP},
+      <if test="creationDate != null" >
+        #{creationDate,jdbcType=TIMESTAMP},
       </if>
-      <if test="birthdate != null" >
-        #{birthdate,jdbcType=DATE},
+      <if test="birthDate != null" >
+        #{birthDate,jdbcType=DATE},
       </if>
     </trim>
   </insert>
@@ -138,11 +138,11 @@
       <if test="height != null" >
         height = #{height,jdbcType=SMALLINT},
       </if>
-      <if test="creationdate != null" >
-        creationDate = #{creationdate,jdbcType=TIMESTAMP},
+      <if test="creationDate != null" >
+        creation_date = #{creationDate,jdbcType=TIMESTAMP},
       </if>
-      <if test="birthdate != null" >
-        birthDate = #{birthdate,jdbcType=DATE},
+      <if test="birthDate != null" >
+        birth_date = #{birthDate,jdbcType=DATE},
       </if>
     </set>
     where id = #{id,jdbcType=BIGINT}
@@ -157,8 +157,8 @@
       type = #{type,jdbcType=SMALLINT},
       weight = #{weight,jdbcType=SMALLINT},
       height = #{height,jdbcType=SMALLINT},
-      creationDate = #{creationdate,jdbcType=TIMESTAMP},
-      birthDate = #{birthdate,jdbcType=DATE}
+      creation_date = #{creationDate,jdbcType=TIMESTAMP},
+      birth_date = #{birthDate,jdbcType=DATE}
     where id = #{id,jdbcType=BIGINT}
   </update>
 </mapper>

@@ -2,10 +2,7 @@ package com.xiaohe.lgmarry.dao.util.paging;
 
 import org.apache.ibatis.executor.resultset.DefaultResultSetHandler;
 import org.apache.ibatis.executor.resultset.ResultSetHandler;
-import org.apache.ibatis.plugin.Interceptor;
-import org.apache.ibatis.plugin.Intercepts;
-import org.apache.ibatis.plugin.Invocation;
-import org.apache.ibatis.plugin.Signature;
+import org.apache.ibatis.plugin.*;
 import org.apache.ibatis.reflection.DefaultReflectorFactory;
 import org.apache.ibatis.reflection.MetaObject;
 import org.apache.ibatis.reflection.ReflectorFactory;
@@ -40,8 +37,8 @@ public class PaginationResultSetHandlerInterceptor implements Interceptor {
         }
         return result;    }
 
-    public Object plugin(Object o) {
-        return null;
+    public Object plugin(Object target) {
+        return Plugin.wrap(target, this);
     }
 
     public void setProperties(Properties properties) {

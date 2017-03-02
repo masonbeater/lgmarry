@@ -21,9 +21,9 @@ public class Member {
 
     private Short height;
 
-    private Date creationdate;
+    private Date creationDate;
 
-    private Date birthdate;
+    private Date birthDate;
 
     public Long getId() {
         return id;
@@ -97,19 +97,19 @@ public class Member {
         this.height = height;
     }
 
-    public Date getCreationdate() {
-        return creationdate;
+    public Date getCreationDate() {
+        return creationDate;
     }
 
-    public void setCreationdate(Date creationdate) {
-        this.creationdate = creationdate;
+    public void setCreationDate(Date creationDate) {
+        this.creationDate = creationDate;
     }
 
-    public Date getBirthdate() {
-        return birthdate;
+    public Date getBirthDate() {
+        return birthDate;
     }
 
-    public void setBirthdate(Date birthdate) {
-        this.birthdate = birthdate;
+    public void setBirthDate(Date birthDate) {
+        this.birthDate = birthDate;
     }
 }

@@ -1,16 +1,17 @@
 package com.xiaohe.lgmarry.controller;
 
+import com.xiaohe.lgmarry.dao.criteria.UserCriteria;
 import com.xiaohe.lgmarry.dao.model.User;
+import com.xiaohe.lgmarry.dao.util.paging.Page;
 import com.xiaohe.lgmarry.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 /**
  * Created by shema on 2017/2/17.
@@ -24,7 +25,7 @@ public class UserController {
 
     @RequestMapping(value = "/index", method = RequestMethod.GET)
     public String index(){
-        return "index";
+        return "_index";
     }
 
     @RequestMapping(value = "/query/{username}", method = RequestMethod.GET)
@@ -48,6 +49,18 @@ public class UserController {
             model.addAttribute("success", true);
         }
         model.addAttribute("user", user);
+        return "_index";
+    }
+
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public String login(User user, Model model, HttpServletRequest request){
+        User queryUser = userService.login(user.getUsername(), user.getPassword());
+        if(queryUser != null) {
+            model.addAttribute("user", queryUser);
+        }else{
+            model.addAttribute("error", "用户名或密码错误");
+        }
         return "index";
     }
+
 }

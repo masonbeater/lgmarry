@@ -9,7 +9,9 @@ public class User {
 
     private String password;
 
-    private Date creationdate;
+    private String state;
+
+    private Date creationDate;
 
     public Long getId() {
         return id;
@@ -35,11 +37,19 @@ public class User {
         this.password = password == null ? null : password.trim();
     }
 
-    public Date getCreationdate() {
-        return creationdate;
+    public String getState() {
+        return state;
     }
 
-    public void setCreationdate(Date creationdate) {
-        this.creationdate = creationdate;
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public Date getCreationDate() {
+        return creationDate;
+    }
+
+    public void setCreationdate(Date creationDate) {
+        this.creationDate = creationDate;
     }
 }

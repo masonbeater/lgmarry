@@ -61,8 +61,8 @@
     </typeAliases>
 
     <plugins>
-        <plugin interceptor="com.xiaohe.lgmarry.dao.util.paging.PaginationResultSetHandlerInterceptor"/>
         <plugin interceptor="com.xiaohe.lgmarry.dao.util.paging.PaginationStatementHandlerInterceptor"/>
+        <plugin interceptor="com.xiaohe.lgmarry.dao.util.paging.PaginationResultSetHandlerInterceptor"/>
     </plugins>
 
 </configuration>

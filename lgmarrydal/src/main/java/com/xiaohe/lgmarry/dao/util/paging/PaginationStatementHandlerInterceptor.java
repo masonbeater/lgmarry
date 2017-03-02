@@ -27,7 +27,7 @@ import java.util.Properties;
  * @author Mason
  * @since 2017年2月21日 下午5:20:31
  **/
-@Intercepts({ @Signature(type = StatementHandler.class, method = "prepare", args = { Connection.class }) })
+@Intercepts({ @Signature(type = StatementHandler.class, method = "prepare", args = { Connection.class, Integer.class }) })
 public class PaginationStatementHandlerInterceptor implements Interceptor {
 
     private final static Logger logger = LoggerFactory.getLogger(PaginationStatementHandlerInterceptor.class);
@@ -90,7 +90,7 @@ public class PaginationStatementHandlerInterceptor implements Interceptor {
         // MetaObject.forObject(parameterHandler);
         // Object parameterObject =
         // metaStatementHandler.getValue("parameterObject");
-        // TODO 缓存具有相同SQL语句和参数的总数
+        // 缓存具有相同SQL语句和参数的总数
         PreparedStatement prepareStatement = connection.prepareStatement(countSql);
         parameterHandler.setParameters(prepareStatement);
         ResultSet rs = prepareStatement.executeQuery();
